@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Detail - JBooks</title>
+    <link rel="stylesheet" href="bookdetail.css" />
+</head>
+
+<body>
+<main layout:fragment="content" class="content">
+    <div class="book-detail">
+        <h1 th:text="${book.title}">Try Start – Các Loại Chữ Trong Tiếng Nhật Và Hội Thoại Đơn Giản (Tái Bản 2019)</h1>
+        <div class="book-rating">
+            <!-- Placeholder for rating stars -->
+            <span th:text="'0 đánh giá từ khách hàng'">0 đánh giá từ khách hàng</span>
+        </div>
+        <div class="social-share">
+            <!-- Icons for social sharing would be here -->
+        </div>
+
+        <div class="book-content">
+            <div class="book-image">
+                <img th:src="'data:image/jpeg;base64,' + ${book.image}" alt="Book Image" />
+            </div>
+            <div class="book-info">
+                <div class="book-price">
+                    <span class="current-price" th:text="${book.price + 'đ'}">69.000đ</span>
+                    <span class="original-price" th:text="${book.originalPrice + 'đ'}">82.000đ</span>
+                    <span class="discount" th:text="'-' + ${book.discount} + '%'">-16%</span>
+                </div>
+
+                <div class="purchase-options">
+                    <input type="number" name="quantity" value="1" min="1" />
+                    <button class="add-to-cart">+ Giỏ Hàng</button>
+                    <button class="buy-now">Mua Ngay</button>
+                </div>
+
+                <div class="book-sku">
+                    <strong>SKU:</strong> <span th:text="${book.sku}">TV0005</span>
+                </div>
+                <div class="book-category">
+                    <strong>Danh mục:</strong> <span th:text="${book.category}">Sách học, Sách vỡ lòng</span>
+                </div>
+                <div class="book-tags">
+                    <strong>Tag:</strong> <span th:text="${book.tags}">sách vỡ lòng</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
